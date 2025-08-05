@@ -1,299 +1,187 @@
 <!DOCTYPE html>
 <html lang="my">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>မြန်မာ့ FM ရေဒီယို</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ရွှေဟင်္သာ ရေဒီယို | Shwehinnthar Radio</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: "Myanmar Text", sans-serif;
+      background: linear-gradient(to bottom, #ffd700, #fff8dc);
+      color: #333;
+      transition: background 0.5s, color 0.5s;
     }
+
+    .dark-mode {
+      background: #111;
+      color: #eee;
+    }
+
     header {
-      background: rgba(0,0,0,0.6);
-      padding: 1.2rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      background-color: #a90002;
+      padding: 20px 10px;
+      text-align: center;
     }
+
     header h1 {
       margin: 0;
-      font-weight: 600;
-      font-size: 1.8rem;
-      letter-spacing: 1px;
-      user-select: none;
+      font-size: 2em;
+color: white;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      padding: 0;
-      margin: 0;
+
+    header p {
+      margin-top: 5px;
+      font-size: 1.2em;
+ color: #daa520;
     }
-    nav ul li {
-      margin-left: 1.8rem;
-    }
-    nav ul li a {
-      color: #f0f0f0;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-    nav ul li a:hover,
-    nav ul li a.active {
-      color: #fbb034;
-    }
-    main {
-      flex-grow: 1;
-      padding: 2rem;
-      max-width: 960px;
+
+    .container {
+      padding: 30px 20px;
+      max-width: 900px;
       margin: auto;
-      width: 100%;
-    }
-    section {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 1.8rem 2rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-    }
-    h2 {
-      margin-top: 0;
-      font-weight: 600;
-      border-bottom: 3px solid #fbb034;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1.3rem;
-      user-select: none;
-    }
-    /* Player */
-    .player-container {
       text-align: center;
-      margin-bottom: 2rem;
     }
+
+    .logo {
+      max-width: 200px;
+      margin: 20px auto;
+      border-radius: 10px;
+    }
+
+    .radio-player {
+      margin: 30px 0;
+    }
+
     audio {
       width: 100%;
-      max-width: 400px;
-      outline: none;
+      max-width: 500px;
       border-radius: 8px;
-      box-shadow: 0 0 15px #fbb034cc;
-      background: #222;
     }
-    /* Schedule Table */
-    table.programme-schedule {
-      width: 100%;
-      border-collapse: collapse;
-      color: #fff;
+
+    .info, .contact, .map, .social {
+      background-color: #fffbe6;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      line-height: 1.7em;
     }
-    table.programme-schedule th,
-    table.programme-schedule td {
-      padding: 0.8rem 1rem;
-      border-bottom: 1px solid #fbb03488;
-      text-align: left;
+
+    .dark-mode .info,
+    .dark-mode .contact,
+    .dark-mode .map,
+    .dark-mode .social {
+      background-color: #222;
     }
-    table.programme-schedule th {
-      background: #fbb034cc;
-      color: #222;
-      user-select: none;
+
+    .social a {
+      margin: 0 10px;
+      font-size: 1.5em;
+      text-decoration: none;
+      color: #333;
     }
-    table.programme-schedule tr:hover {
-      background: #fbb03422;
+
+    .dark-mode .social a {
+      color: #f8f8f8;
     }
-    /* Contact Form */
-    form {
-      display: flex;
-      flex-direction: column;
-    }
-    form label {
-      margin-bottom: 0.4rem;
-      font-weight: 600;
-    }
-    form input, form textarea {
-      padding: 0.6rem 1rem;
-      margin-bottom: 1.2rem;
-      border-radius: 6px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-      font-family: inherit;
-    }
-    form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    form button {
-      background-color: #fbb034;
-      border: none;
-      padding: 0.9rem 1.4rem;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #222;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      align-self: flex-start;
-    }
-    form button:hover {
-      background-color: #e79f15;
-    }
-    /* Footer */
+
     footer {
-      background: rgba(0,0,0,0.7);
-      color: #bbb;
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      user-select: none;
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 40px;
+      padding-bottom: 20px;
     }
-    /* Responsive */
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav ul {
-        flex-wrap: wrap;
-        margin-top: 0.5rem;
-      }
-      nav ul li {
-        margin-left: 0;
-        margin-right: 1.4rem;
-        margin-bottom: 0.5rem;
-      }
-      main {
-        padding: 1rem;
-      }
-      table.programme-schedule th, table.programme-schedule td {
-        padding: 0.6rem 0.6rem;
-      }
+
+    .toggle-btn {
+      background: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .toggle-btn:hover {
+      background: #000;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>မြန်မာ့ FM ရေဒီယို</h1>
-    <nav>
-      <ul>
-        <li><a href="#listen" class="active">နားထောင်ရန်</a></li>
-        <li><a href="#programmes">အစီအစဉ်များ</a></li>
-        <li><a href="#contact">ဆက်သွယ်ရန်</a></li>
-      </ul>
-    </nav>
+    <h1>ရွှေဟင်္သာ ရေဒီယို</h1>
+    <p>Shwehinnthar Radio</p>
   </header>
 
-  <main>
-    <section id="listen" class="player-container" aria-label="Live Stream Player">
-      <h2>မြန်မာ့ရေဒီယိုတိုက်ရိုက်ထုတ်လွှင့်ခြင်း</h2>
-      <audio controls preload="none" crossorigin="anonymous">
-        <source src="https://stream.zeno.fm/pxn7p5cbm48uv" type="audio/mpeg" />
-        သင့်ဘရောက်ဇာသည် အသံအင်္ဂါရပ်ကို ထောက်ပံ့မထားပါ။
+  <div class="container">
+
+    <!-- 🎨 Logo -->
+    <img src="fmlogo.png" alt="ရွှေဟင်္သာ ရေဒီယို Logo" class="logo">
+
+    <!-- 🌃 Dark Mode Toggle -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+
+    <!-- 📻 Radio Player -->
+    <div class="radio-player">
+      <h2>📻 အသံလွှင့်နေပြီ!</h2>
+      <audio controls autoplay>
+        <source src="https://stream.zeno.fm/nv7i41tz04mtv" type="audio/mpeg">
+        သင့် browser သည် audio player ကို မပံ့ပိုးပါ။
       </audio>
-      <p>Streaming from: <a href="https://onlineradiobox.com/mm/myanmar/?cs=mm.myanmar&played=1" target="_blank" rel="noopener noreferrer">မြန်မာ FM ရေဒီယို</a></p>
-    </section>
+    </div>
 
-    <section id="programmes" aria-label="Radio Program Schedule">
-      <h2>အစီအစဉ်များ</h2>
-      <table class="programme-schedule" summary="24/7 FM ရေဒီယိုအစီအစဉ်များနှင့် အချိန်များ">
-        <thead>
-          <tr>
-            <th>အချိန် (ဒေသခံ)</th>
-            <th>အစီအစဉ်</th>
-            <th>တင်ဆက်သူ</th>
-            <th>ဖော်ပြချက်</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>12:00 AM - 6:00 AM</td>
-            <td>မြန်မာသံစဉ်</td>
-            <td>ကိုသီရိ</td>
-            <td>ညအိပ်ယာဝင်တေးသံစဉ်သီချင်းများ။</td>
-          </tr>
-          <tr>
-            <td>6:00 AM - 9:00 AM</td>
-            <td>မနက်ခင်း အထွေထွေ</td>
-            <td>ဘုန်းပြည့်ကျော်</td>
-            <td>မနက်ခင်း တရားတော်များနှင့် သီချင်းများ</td>
-          </tr>
-          <tr>
-            <td>9:00 AM - 12:00 PM</td>
-            <td>နားဆင်စရာ တေးသံသာ</td>
-            <td>နဒီ</td>
-            <td>နားဆင်စရာ သီချင်းကောင်းများ။</td>
-          </tr>
-          <tr>
-            <td>12:00 PM - 2:00 PM</td>
-            <td>နေ့လည်ပိုင်း အစီအစဉ်များ</td>
-            <td>မျိုးသန့်</td>
-            <td>တွေ့ဆုံမေးမြန်းချက်များနှင့် သီချင်းများ</td>
-          </tr>
-          <tr>
-            <td>2:00 PM - 5:00 PM</td>
-            <td>စာပေရေးရာနှင့် ဆောင်းပါး/ဝတ္ထုတို</td>
-            <td>ဋ္ဌေးနိုင်</td>
-            <td>ဆောင်းပါး, ပုံပြင်, ဝတ္ထုတိုနှင့် ကဗျာများ</td>
-          </tr>
-          <tr>
-            <td>5:00 PM - 8:00 PM</td>
-            <td>တေးသရုပ်ဖော်နှင့် ဇာတ်လမ်းပမာ</td>
-            <td>သွန်းသွန်း</td>
-            <td>ဇာတ်လမ်းပမာ နားဆင်စရာများ</td>
-          </tr>
-          <tr>
-            <td>8:00 PM - 12:00 AM</td>
-            <td>ညအိပ်ယာဝင်သီချင်းများနှင့်ဓမ္မတေးများ</td>
-            <td>MC ဖြိုး</td>
-            <td>အိပ်ယာဝင်တေး သီချင်းများနှင့်ဓမ္မတေးများ</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+    <!-- 📍 Location Info -->
+    <div class="info">
+      <h3>📍 တည်နေရာ</h3>
+      <p>
+        ရွှေဟင်္သာ ရေဒီယို သည် <br>
+        ပဲခူးတိုင်းဒေသကြီး၊ <br>
+        ညောင်လေးပင်ခရိုင်၊ <br>
+        ညောင်လေးပင်မြို့၊ မြို့မ ၅ ရပ်ကွက်၊ <br>
+        ရွှေဟင်္သာလမ်း၊ ရွှေဟင်္သာစင်တာ <br>
+        တွင် တည်ရှိပါသည်။
+      </p>
+    </div>
 
-    <section id="contact" aria-label="Contact Information">
-      <h2>ဆက်သွယ်ရန်</h2>
-      <p>သင့်ထံမှ အကြံပြုချက်များ၊ သီချင်းတောင်းဆိုမှုများ သို့မဟုတ် မေးခွန်းများကို ကြားလိုပါသည်။</p>
-      <address>
-        ရုံး + 959 33913388<br />
-        ဖုန်း: +95 9 944011000 <br />
-        လိပ်စာ: Shwehinnthar St., Nyaunglebin, Bago, Myanmar
-      </address>
+    <!-- 📞 Contact Info -->
+    <div class="contact">
+      <h3>📞 ဆက်သွယ်ရန်</h3>
+      <p>
+        ဖုန်း: +959-33913388 <br>
+        Email: shwehinnthar.radio@upanna.com
+      </p>
+    </div>
 
-      <form action="shwehinntharcentre@gmail.com" method="post" enctype="text/plain" aria-label="Contact Form">
-        <label for="name">နာမည်:</label>
-        <input type="text" id="name" name="Name" required aria-required="true" />
+    <!-- 🌐 Google Map -->
+    <div class="map">
+      <h3>🌐 Google Map</h3>
+      <iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d152.23059666227097!2d96.7230058!3d17.9632234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c40b002efab0ad%3A0x5412241dc0cc1fc5!2sShwehinnthar%20Center!5e0!3m2!1sen!2smm!4v1722834745671!5m2!1sen!2smm" 
+  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+    </div>
 
-        <label for="email">အီးမေးလ်:</label>
-        <input type="email" id="email" name="Email" required aria-required="true" />
+    <!-- 📱 Social Media -->
+    <div class="social">
+      <h3>📱 Social Media</h3>
+      <a href="https://facebook.com/hinntharstudio" target="_blank">📘 Facebook</a>
+      <a href="https://www.youtube.com/@shwehinntharlive" target="_blank">▶️ YouTube</a>
+      <a href="https://m.me/hinntharstudio" target="_blank">💬 Messenger</a>
+    </div>
 
-        <label for="message">မက်ဆေ့ခ်ျ:</label>
-        <textarea id="message" name="Message" required aria-required="true"></textarea>
-
-        <button type="submit">ပို့ရန်</button>
-      </form>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2024 မြန်မာ 24/7 Live FM ရေဒီယို။ အခွင့်အရေးများအားလုံး ကာကွယ်ထားသည်။
-  </footer>
+    <!-- Footer -->
+    <footer>
+      © 2025 ရွှေဟင်္သာ ရေဒီယို | Shwehinnthar Radio
+    </footer>
+  </div>
 
   <script>
-    // Simple script to switch active nav link on click
-    document.querySelectorAll('nav ul li a').forEach(link => {
-      link.addEventListener('click', e => {
-        document.querySelectorAll('nav ul li a').forEach(l => l.classList.remove('active'));
-        e.target.classList.add('active');
-      });
-    });
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
   </script>
+
 </body>
 </html>
