@@ -52,14 +52,14 @@
     .radio-player {
       margin: 30px 0;
     }
-h2 {color: red;}
+    h2 {color: red;}
     audio {
       width: 100%;
       max-width: 500px;
       border-radius: 8px;
     }
 
-    .info, .contact, .map, .social, .schedule {
+    .info, .contact, .map, .social, .schedule, .contact-form {
       background-color: #fffbe6;
       padding: 20px;
       border-radius: 10px;
@@ -71,7 +71,8 @@ h2 {color: red;}
     .dark-mode .contact,
     .dark-mode .map,
     .dark-mode .social,
-    .dark-mode .schedule {
+    .dark-mode .schedule,
+    .dark-mode .contact-form {
       background-color: #222;
     }
 
@@ -123,6 +124,37 @@ h2 {color: red;}
     th {
       background-color: #f2f2f2;
     }
+
+    /* Contact Form Styles */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-form label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      max-width: 300px;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form input[type="submit"] {
+      background-color: #a90002;
+      color: white;
+      cursor: pointer;
+    }
+
+    .contact-form input[type="submit"]:hover {
+      background-color: #b30003;
+    }
   </style>
 </head>
 <body>
@@ -148,7 +180,8 @@ h2 {color: red;}
         သင့် browser သည် audio player ကို မပံ့ပိုးပါ။
       </audio>
     </div>
- <!-- 📅 Schedule Table -->
+
+    <!-- 📅 Schedule Table -->
     <div class="schedule">
       <h3>📅 ရေဒီယိုအစီအစဉ် အချိန်ဇယား</h3>
       <table>
@@ -176,7 +209,7 @@ h2 {color: red;}
           <td>09:00 AM</td>
           <td>မျက်မှောက်ရေးရာအဖြာဖြာ</td>
         </tr>
-         <tr>
+        <tr>
           <td>10:00 AM</td>
           <td>ခေတ်ပေါ်တေးသီချင်းများ</td>
         </tr>
@@ -188,7 +221,7 @@ h2 {color: red;}
           <td>12:00 AM</td>
           <td>မြန်မာသံစဉ်သီချင်းများ</td>
         </tr>
-         <tr>
+        <tr>
           <td>01:00 PM</td>
           <td>ခေတ်ပေါ်တေးသီချင်းများ</td>
         </tr>
@@ -234,26 +267,43 @@ h2 {color: red;}
         </tr>
       </table>
     </div>
+
     <!-- 📍 Location Info -->
     <div class="info">
-      <h3>📍 တည်နေရာ</h3>
+      <h3>📍 ကြော်ငြာများထည့်သွင်းနိုင်ပါသည်</h3>
       <p>
-        ရွှေဟင်္သာ ရေဒီယို သည် <br>
-        ပဲခူးတိုင်းဒေသကြီး၊ <br>
-        ညောင်လေးပင်ခရိုင်၊ <br>
-        ညောင်လေးပင်မြို့၊ မြို့မ ၅ ရပ်ကွက်၊ <br>
-        ရွှေဟင်္သာလမ်း၊ ရွှေဟင်္သာစင်တာ <br>
-        တွင် တည်ရှိပါသည်။
+       ညနေ ၃ နာရီအချိန် အင်္ဂလိပ်စကားပြောနည်းများ ထုတ်လွှင့်သင်ကြားပေးပါမည်။<br>
+        သင်တန်းနှင့်ပတ်သက်၍ တစ်စုံတစ်ရာ မေးမြန်းလိုပါက အောက်ပါအတိုင်း ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။
       </p>
     </div>
 
     <!-- 📞 Contact Info -->
     <div class="contact">
       <h3>📞 ဆက်သွယ်ရန်</h3>
-      <p>
+      <p>ပဲခူးတိုင်းဒေသကြီး၊ <br>
+        ညောင်လေးပင်ခရိုင်၊ <br>
+        ညောင်လေးပင်မြို့၊ မြို့မ ၅ ရပ်ကွက်၊ <br>
+        ရွှေဟင်္သာလမ်း၊ ရွှေဟင်္သာစင်တာ <br>
         ဖုန်း: +959-33913388 <br>
-        Email: shwehinnthar.radio@upanna.com
+        Email: shwehinntharcentre@gmail.com
       </p>
+    </div>
+
+    <!-- 📞 Contact Form -->
+    <div class="contact-form">
+      <h3>📞 ဆက်သွယ်ရန် ဖောင်</h3>
+      <form id="contactForm">
+          <label for="name">အမည်:</label>
+          <input type="text" id="name" name="name" required aria-label="Your Name">
+
+          <label for="email">လိပ်စာ:</label>
+          <input type="email" id="email" name="email" required aria-label="Your Email">
+
+          <label for="message">အကြောင်း:</label>
+          <textarea id="message" name="message" required aria-label="Your Message"></textarea>
+
+          <input type="submit" value="Send">
+      </form>
     </div>
 
     <!-- 🌐 Google Map -->
@@ -279,7 +329,34 @@ h2 {color: red;}
     </footer>
   </div>
 
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script>
+    (function() {
+        emailjs.init("SGKNPgbHDi1FVFtra"); // သင့် User ID ကို ထည့်ပါ
+    })();
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const message = document.getElementById('message').value;
+
+        // Send email using EmailJS
+        emailjs.send("service_q2r32eb", "template_ae5rjnc", {
+            name: name,
+            email: email,
+            message: message
+        })
+        .then(function(response) {
+            alert("Your message has been sent successfully!");
+            document.getElementById('contactForm').reset(); // Clear the form
+        }, function(error) {
+            alert("There was a problem sending your message.");
+        });
+    });
+
     function toggleDarkMode() {
       document.body.classList.toggle('dark-mode');
     }
@@ -287,7 +364,3 @@ h2 {color: red;}
 
 </body>
 </html>
-
-
-
-
