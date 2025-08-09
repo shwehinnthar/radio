@@ -27,13 +27,13 @@
     header h1 {
       margin: 0;
       font-size: 2em;
-color: white;
+      color: white;
     }
 
     header p {
       margin-top: 5px;
       font-size: 1.2em;
- color: #daa520;
+      color: #daa520;
     }
 
     .container {
@@ -59,9 +59,7 @@ color: white;
       border-radius: 8px;
     }
 
-    h2{color: red;}
-
-    .info, .contact, .map, .social {
+    .info, .contact, .map, .social, .schedule {
       background-color: #fffbe6;
       padding: 20px;
       border-radius: 10px;
@@ -72,7 +70,8 @@ color: white;
     .dark-mode .info,
     .dark-mode .contact,
     .dark-mode .map,
-    .dark-mode .social {
+    .dark-mode .social,
+    .dark-mode .schedule {
       background-color: #222;
     }
 
@@ -107,6 +106,22 @@ color: white;
 
     .toggle-btn:hover {
       background: #000;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
     }
   </style>
 </head>
@@ -272,5 +287,6 @@ color: white;
 
 </body>
 </html>
+
 
 
